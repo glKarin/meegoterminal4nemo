@@ -1,0 +1,91 @@
+{
+	"name": "TEST",
+	"desc": "Default",
+	"version": "1.0.0",
+	"author": "karin",
+	"release": "20150625",
+	"layout": [
+	{
+		"sym": "0x01000001",
+		"name": "Tab",
+		"label": "Tab",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x43",
+		"name": "Ctrl",
+		"label": "Ctrl",
+		"type": "modifier",
+		"modifier": "0x0e000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x01000000",
+		"name": "Esc",
+		"label": "Esc",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x01000010",
+		"name": "Home",
+		"label": "Home",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x01000017",
+		"name": "PageDown",
+		"label": "PgDn",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": true
+	},
+	{
+		"sym": "0x01000016",
+		"name": "PageUp",
+		"label": "PgUp",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": true
+	},
+	{
+		"sym": "0x01000011",
+		"name": "End",
+		"label": "End",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x01000034",
+		"name": "F5",
+		"label": "F5",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	},
+	{
+		"sym": "0x01000035",
+		"name": "F6",
+		"label": "F6",
+		"type": "function",
+		"modifier": "0x00000000",
+		"data": null,
+		"repeat": false
+	}
+	]
+}
+

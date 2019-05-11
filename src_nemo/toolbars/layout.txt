@@ -1,0 +1,4 @@
+function: function key, like arrows, home, end, tab, esc.
+general: like 1 - 9, a - z and symbols.
+modifier: ctrl(Ctrl + Shift + Alt + C), alt(Ctrl + Shift + Alt + A)
+system: Menu is toggle menu, Switcher is page switcher. Copy, Paste.

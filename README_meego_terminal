@@ -1,0 +1,19 @@
+This is a port of QTermWidget to Qt Graphics View Framework and MeeGo Touch.
+
+This project consists of:
+
+1) QGraphicsTermWidget in the lib directory, which is a port of QTermWidget
+from QWidget to Qt Graphics View Framework.
+
+2) MeeGo Touch application, meego-terminal, that uses QGraphicsTermWidget.
+
+1 and 2 are separated so that 1 could easily be used with any other framework
+than MeeGo Touch. Thus, 2 has all the MeeGo Touch specific code and 1 has plain
+Qt && Qt Graphics View code.
+
+The QGraphicsTermWidget code is based on the latest cvs checkout of QTermWidget
+from: http://qtermwidget.sourceforge.net/
+Last sync done on 1.1.2011.
+
+Big thanks to everyone who has worked on Konsole and QTermWidget. Without your
+effort this project would not have been possible.
