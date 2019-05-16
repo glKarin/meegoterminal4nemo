@@ -9,7 +9,8 @@ karin::button::button(const QString &text, QGraphicsWidget *parent)
 	m_text(text),
 	m_checked(false),
 	m_checkable(true),
-	m_autoRelease(true)
+	m_autoRelease(true),
+	m_clickable(true)
 {
 	setObjectName(OBJECTNAME_BUTTON);
 	setNeedToPaint(false);
@@ -179,7 +180,8 @@ void karin::button::paint(QPainter *painter, const QStyleOptionGraphicsItem *opt
 
 void karin::button::mousePressEvent(QGraphicsSceneMouseEvent *e)
 {
-	touchEvent(true);
+	if(m_clickable)
+		touchEvent(true);
 	karin::rect::mousePressEvent(e);
 }
 
@@ -210,10 +212,9 @@ void karin::button::touchEvent(bool arg)
 		return;
 
 	b = m_autoRelease ? arg : !m_checked;
+	setChecked(b);
 	emit b ? pressed() : released();
 	emit clicked(b);
-	emit triggered(b);
-	setChecked(b);
 }
 
 void karin::button::resizeEvent(QGraphicsSceneResizeEvent* event)
@@ -226,5 +227,13 @@ void karin::button::setAutoRelease(bool b)
 	if(m_autoRelease == b)
 		return;
 	m_autoRelease = b;
+	reset();
+}
+
+void karin::button::setClickable(bool b)
+{
+	if(m_clickable == b)
+		return;
+	m_clickable = b;
 	reset();
 }

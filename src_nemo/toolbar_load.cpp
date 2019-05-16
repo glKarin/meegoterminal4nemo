@@ -315,5 +315,5 @@ void karin::toolbar::updateToolbarDirectory(const QString &path)
 
 QStringList karin::toolbar::ToolbarDirectory()
 {
-	return QStringList() << QString(_KARIN_PREFIX_) + IM_TOOLBARS_DIR << QDir::homePath() + "/" + QString(_KARINCONSOLE_HOME) + IM_TOOLBARS_DIR;
+	return QStringList() << _KARIN_PREFIX_ IM_TOOLBARS_DIR << QDir::homePath() + "/" + QString(_KARINCONSOLE_HOME) + IM_TOOLBARS_DIR;
 }

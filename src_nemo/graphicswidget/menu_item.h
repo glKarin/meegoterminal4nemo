@@ -45,6 +45,7 @@ Q_SIGNALS:
 			void touchEvent(bool on);
 			void cancel();
 			void setAutoRelease(bool b);
+			void setCanClick(bool b);
 
 		public Q_SLOTS:
 		void setText(const QString &text);
@@ -58,6 +59,7 @@ Q_SIGNALS:
 
 		private:
 		button *m_btn;
+		bool m_canClick;
 
 			Q_DISABLE_COPY(menu_item)
 	};

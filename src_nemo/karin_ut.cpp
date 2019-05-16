@@ -5,13 +5,6 @@
 
 #include <QDebug>
 
-#ifdef _KARIN_INSTALL_
-#define IM_TOOLBARS_DIR "/usr/share/karin-console/toolbars/"
-#else
-#define IM_TOOLBARS_DIR "/home/user/karinconsole/src_meegotouch/toolbars/"
-#endif
-
-
 karin::ut::ut()
 	:settings(new QSettings)
 {
@@ -60,7 +53,7 @@ QVariant karin::ut::defaultSettings(const QString &key)
 	else if(key == FULL_SCREEN)
 		return QVariant(false);
 	else if(key == ACTIVE_TOOLBAR)
-		return QVariant(QVariant(QString("%1%2").arg(IM_TOOLBARS_DIR).arg("karin.xml")));
+		return QVariant(QVariant(QString("%1%2").arg(_KARIN_PREFIX_ IM_TOOLBARS_DIR).arg("default.layout.json")));
 	else if(key == SHOW_BANNER)
 		return QVariant(true);
 	else if(key == ORIENTATION)
@@ -133,12 +126,8 @@ const QString & karin::ut::GetKarinConsoleHelp()
 			"supported toolbars is unlimited, so you can add your own toolbars "
 			"to that directory. For the toolbar XML format specification see "
 			"<a href='%2'>MeeGo IM Framework - Toolbar XML document</a>"
-			).arg(QString(_KARIN_PREFIX_) + "/toolbar/")
-#ifdef _KARIN_LOCAL_
-		.arg(QString(_KARIN_PREFIX_) + "/src_meegotouch/resource/toolbarxml.html");
-#else
-		.arg(QString(_KARIN_PREFIX_) + "/resource/toolbarxml.html");
-#endif
+			).arg(_KARIN_PREFIX_ "/toolbars/")
+		.arg(_KARIN_PREFIX_ "/toolbars/toolbar_layout.txt");
 
 	static const QString KarinConsole_Help;
 	if(KarinConsole_Help.isEmpty())

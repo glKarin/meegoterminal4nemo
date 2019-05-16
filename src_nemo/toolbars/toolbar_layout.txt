@@ -1,0 +1,10 @@
+sym: Qt key code
+name: Key name
+label: Key label for shown
+type: 
+	function: function key, like arrows, home, end, tab, esc.
+	general: like 1 - 9, a - z and symbols.
+	modifier: ctrl(Ctrl + Shift + Alt + C), alt(Ctrl + Shift + Alt + A)
+modifier: Qt modifier key code
+data: null, unused now
+repeat: can hold and repeat

@@ -22,7 +22,7 @@
 {
 	setObjectName(OBJECTNAME_DIALOG_TITLE_BAR);
 	setContentsMargins(20, 0, 20, 0);
-	m_closeBtn->setImage("./resource/icon-m-close.png");
+	m_closeBtn->setImage(_KARIN_PREFIX_ "/resource/icon-m-close.png");
 	connect(m_closeBtn, SIGNAL(clicked(bool)), this, SLOT(closeClickedSlot(bool)));
 }
 

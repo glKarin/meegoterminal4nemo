@@ -28,7 +28,7 @@
 #define CLOSE_TAB "close_tab"
 #define SELECT_TAB "select_tab"
 
-#define _KARINCONSOLE_HOME ".karinconsole"
+#define _KARINCONSOLE_HOME ".karin-console"
 #define IM_TOOLBARS_DIR "/toolbars/"
 
 

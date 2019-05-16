@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Konsole
+Comment=MeeGo Terminal Emulator for Sailfish
+#Icon=icon-l-terminal
+Icon=/usr/share/karin-console/icon/karin-console.png
+Exec=/usr/bin/karin-console
+Type=Application
+Categories=Development;

@@ -40,7 +40,7 @@ karin::terminal::terminal(QGraphicsWidget *parent)
 	m_menu->setOpacity(0.8);
 	m_menu->reset();
 	
-	m_menuBtn->setImage("./resource/icon-m-menu.png");
+	m_menuBtn->setImage(_KARIN_PREFIX_ "/resource/icon-m-menu.png");
 	m_menuBtn->setFixedWidth(64);
 	m_menuBtn->setRadius(2);
 	QFont f = font();

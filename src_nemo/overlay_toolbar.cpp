@@ -85,7 +85,10 @@ void karin::overlay_toolbar::handleActionAdded(QActionEvent *actionEvent)
 		 newButton->installEventFilter(eatMButtonGestureFilter);
 		 newButton->setStyleName(action->objectName());
 		 */
-	QObject::connect(newButton, SIGNAL(clicked(bool)), action, SLOT(trigger()));
+	// C++11
+	QObject::connect(newButton, &karin::button::clicked, action, [action](bool on){
+			if(!on) action->trigger();
+			});
 
 	m_buttons.push_back(newButton);
 
@@ -102,7 +105,7 @@ void karin::overlay_toolbar::handleActionAdded(QActionEvent *actionEvent)
 
 	m_container->addButton(newButton);
 
-	if (true || action->isVisible()) {
+	if (action->isVisible()) {
 		visibilityUpdated();
 	}
 }
@@ -116,7 +119,7 @@ void karin::overlay_toolbar::handleActionRemoved(QActionEvent *actionEvent)
 		m_container->removeButton(actionIndex);
 	}
 
-	if (true || actionEvent->action()->isVisible()) {
+	if (actionEvent->action()->isVisible()) {
 		// Action was visible before removal, need to update widget.
 		visibilityUpdated();
 	}

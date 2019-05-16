@@ -25,7 +25,8 @@ karin::abstract_menu_item::~abstract_menu_item()
 
 karin::menu_item::menu_item(QGraphicsWidget *parent)
 	: karin::abstract_menu_item(parent),
-	m_btn(new karin::button(this))
+	m_btn(new karin::button(this)),
+	m_canClick(true)
 {
 	setObjectName(OBJECTNAME_MENU_ITEM);
 	QGraphicsAnchorLayout *layout = new QGraphicsAnchorLayout(this);
@@ -51,12 +52,17 @@ void karin::menu_item::clickedSlot(bool b)
 	if(m_btn->autoRelease())
 	{
 		if(!b)
-		emit triggered(m_name, m_value);
+			emit triggered(m_name, m_value);
 	}
 	else
 	{
 		if(b)
 			emit triggered(m_name, m_value);
+		else
+		{
+			if(!m_canClick)
+				m_btn->setChecked(true);
+		}
 	}
 }
 
@@ -93,6 +99,15 @@ void karin::menu_item::cancel()
 void karin::menu_item::setAutoRelease(bool b)
 {
 	m_btn->setAutoRelease(b);
+}
+
+void karin::menu_item::setCanClick(bool b)
+{
+	if(m_canClick != b)
+	{
+		m_canClick = b;
+		m_btn->reset();
+	}
 }
 
 // menu_item_switcher

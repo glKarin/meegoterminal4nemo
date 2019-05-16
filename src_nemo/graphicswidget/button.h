@@ -29,13 +29,14 @@ namespace karin
 			virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 			void setAutoRelease(bool b);
 			bool autoRelease() const { return m_autoRelease; }
+			bool canClick() const { return m_clickable; }
+			void setClickable(bool b);
 
 Q_SIGNALS:
 			void clicked(bool c = false);
 			void pressed();
 			void released();
 			void toggled(bool c);
-			void triggered(bool c);
 
 			public Q_SLOTS:
 			void setChecked(bool b);
@@ -54,6 +55,7 @@ Q_SIGNALS:
 			bool m_checked;
 			bool m_checkable;
 			bool m_autoRelease;
+			bool m_clickable;
 
 			static const int M_Radius = 40;
 			Q_DISABLE_COPY(button)

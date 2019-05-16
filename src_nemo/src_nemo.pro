@@ -49,21 +49,13 @@ MOC_DIR         = ../.moc_d/src_nemo
 
 		} else {
 		OBJECTS_DIR = ../.objs/src_nemo
-MOC_DIR         = ../.moc/src_nemo
+	MOC_DIR         = ../.moc/src_nemo
 		TARGET      = karin-console
 		LIBS            += -L../lib -lkonsole
-		PRE_TARGETDEPS += ../../lib/libkonsole.so
+		PRE_TARGETDEPS += ../lib/libkonsole.so
 		DEFINES += _KARIN_INSTALL_
 		DEFINES += _KARIN_PREFIX_=\\\"/usr/share/karin-console\\\"
 		}
-
-		#LMTP_HEADERS    = lmtp/mtopleveloverlay.h lmtp/meditortoolbararrow.h \
-		#                  lmtp/meditortoolbar_p.h lmtp/meditortoolbar.h
-		#LMTP_SOURCES    = lmtp/mtopleveloverlay.cpp lmtp/meditortoolbararrow.cpp \
-		#                  lmtp/meditortoolbar.cpp
-
-		#HEADERS         = tab_model.h button_with_label.h tab_group.h karin_ut.h tab_button.h terminal.h tab_bar.h MTermWidget.h MTerminalDisplay.h $$LMTP_HEADERS
-		#SOURCES         = main.cpp tab_model.cpp button_with_label.cpp tab_group.cpp karin_ut.cpp tab_button.cpp terminal.cpp tab_bar.cpp MTermWidget.cpp MTerminalDisplay.cpp $$LMTP_SOURCES
 
 		HEADERS         += \
 		karin_ut.h \
@@ -135,7 +127,7 @@ MOC_DIR         = ../.moc/src_nemo
 		graphicswidget/scroll_view.h \
 		graphicswidget/rect.h
 
-		INCLUDEPATH     = . ../lib ./lmtp graphicswidget
+		INCLUDEPATH     = . ../lib graphicswidget
 
 		#LIBS           += -L.. -lqgraphicstermwidget
 
@@ -143,17 +135,14 @@ MOC_DIR         = ../.moc/src_nemo
 		desktop_entry.files = karin-console.desktop
 
 		imtoolbars.path = $$[QT_INSTALL_PREFIX]/share/karin-console/toolbars
-		imtoolbars.files = toolbars/shell.xml toolbars/arrows.xml toolbars/function.xml toolbars/karin.xml
+		imtoolbars.files = toolbars/harmattan.layout.json toolbars/default.layout.json toolbars/toolbar_layout.txt
 
 		target.path = $$[QT_INSTALL_PREFIX]/bin
-
-		style.files = style/karin_mstyle.css
-		style.path = $$[QT_INSTALL_PREFIX]/share/karin-console/style
 
 		i18n.files = i18n/karin-console.zh_CN.ts i18n/karin-console.zh_CN.qm
 		i18n.path = $$[QT_INSTALL_PREFIX]/share/karin-console/i18n
 
-		rsc.files = resource/toolbarxml.html
+		rsc.files = resource/icon-m-close.png  resource/icon-m-menu.png
 		rsc.path = $$[QT_INSTALL_PREFIX]/share/karin-console/resource
 
 		icon.files = karin-console.png

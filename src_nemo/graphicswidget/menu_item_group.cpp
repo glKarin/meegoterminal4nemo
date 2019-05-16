@@ -47,44 +47,44 @@ void karin::menu_item_group::reset()
 
 void karin::menu_item_group::manageActions(karin::menu_item *btn, bool on)
 {
+	karin::menu_item *last;
+
 	if(!btn)
 		return;
 
 	if(m_exclusive)
 	{
-		btn->touchEvent(on);
+		if(!on)
+			return;
+
 		if(m_checkedActions.size() > 0)
 		{
-			if(btn == m_checkedActions.at(0))
+			if(btn != m_checkedActions.at(0))
 			{
-				if(!btn->isOn())
-					btn->setOn(true);
-				return;
-			}
-			if(btn->isOn())
-			{
-				m_checkedActions[0]->reset();
+				last = m_checkedActions[0];
+				last->reset();
 				m_checkedActions.removeAt(0);
 				m_checkedIndexs.removeAt(0);
+
 				m_checkedActions.push_back(btn);
 				m_checkedIndexs.push_back(indexOf(btn));
 				emit checkedChanged();
+			}
+			else
+			{
+				btn->setOn(true);
 			}
 		}
 		else
 		{
-			if(btn->isOn())
-			{
-				m_checkedActions.push_back(btn);
-				m_checkedIndexs.push_back(indexOf(btn));
-				emit checkedChanged();
-			}
+			m_checkedActions.push_back(btn);
+			m_checkedIndexs.push_back(indexOf(btn));
+			emit checkedChanged();
 		}
 	}
 	else
 	{
-		btn->touchEvent(on);
-		if(btn->isOn())
+		if(on)
 		{
 			m_checkedActions.push_back(btn);
 			m_checkedIndexs.push_back(indexOf(btn));
@@ -145,6 +145,16 @@ void karin::menu_item_group::setCheckedIndexs(const QList<int> &indexs)
 
 void karin::menu_item_group::triggeredSlot(const QString &name, const QVariant &value)
 {
+	QObject *sender;
+	karin::menu_item *item;
+
+	sender = this->sender();
+	item = dynamic_cast<karin::menu_item *>(sender);
+	if(item)
+	{
+		manageActions(item, item->isOn());
+	}
+	
 	emit triggered(name, value);
 }
 
@@ -177,6 +187,8 @@ void karin::menu_item_group::addAction(const QString &label, const QString &name
 	btn->setText(label);
 	btn->setName(name);
 	btn->setValue(value);
+	if(m_exclusive)
+		btn->setCanClick(false);
 	connect(btn, SIGNAL(triggered(const QString &, const QVariant &)), this, SLOT(triggeredSlot(const QString &, const QVariant &)));
 	addItem(btn, i);
 }
