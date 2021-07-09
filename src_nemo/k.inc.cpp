@@ -1,8 +1,10 @@
 #include <QGraphicsWidget>
 #include <QGraphicsLayout>
 #include <QGraphicsScene>
+#include <cmath>
 
 #define K_ZERO 0.00001
+#define _USE_MATH_DEFINES
 
 namespace karin
 {

@@ -290,7 +290,7 @@ void karin::rect::caleInnerPath()
 void karin::rect::setRadius(float f)
 {
 	QSizeF s = size();
-	float r = qMin(qMin(s.width() / 2, s.height() / 2), f);
+	float r = qMin(qMin(s.width() / 2, s.height() / 2), double(f));
 	if(m_radius != r)
 	{
 		m_radius = r;

@@ -27,7 +27,7 @@ Provides: meego-terminal
 %{_datadir}/karin-console/icon/*
 
 %prep
-%setup -q -n %{name}
+%setup -n meegoterminal4nemo-master
 
 
 %build
@@ -37,6 +37,5 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf %{buildroot}
-make INSTALL_ROOT=%{buildroot} install
+
 
